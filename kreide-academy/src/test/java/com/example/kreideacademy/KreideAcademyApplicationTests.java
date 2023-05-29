@@ -1,13 +1,13 @@
-package com.example.projectkreide;
+package com.example.kreideacademy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjectKreideApplicationTests {
+class KreideAcademyApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
