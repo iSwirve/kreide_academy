@@ -1,3 +1,22 @@
+
+// Object
+var image_source = document.getElementById("image_source")
+
+
+// Function
+function dashboard() {
+    document.getElementById("userID").style.display = 'none';
+    document.getElementById("dashboardID").style.display = 'block';
+}
+function user() {
+    document.getElementById("userID").style.display = 'block';
+    document.getElementById("dashboardID").style.display = 'none';
+}
+
+
+
+
+//animation
 document.addEventListener("DOMContentLoaded", function(event) {
 
     const showNavbar = (toggleId, navId, bodyId, headerId) =>{
@@ -18,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // add padding to header
                 headerpd.classList.toggle('body-pd')
             })
+
         }
     }
 
