@@ -14,42 +14,46 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @Autowired
     private UserService userService;
+
     @GetMapping("/11")
-    public String Checklogin(String Username, String password){
+    public String Checklogin(String Username, String password) {
         return "dashboard";
     }
 
     @PostMapping("/login")
-    public ModelAndView Ceklogin(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord){
+    public ModelAndView Ceklogin(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
 
 
-        Users obj = userService.getUser(userName);
+        try {
+            Users obj = userService.getUser(userName);
 
-        if(obj != null)
+            if (obj != null) {
+                if (obj.getPassword().equals(passWord)) {
+                    ModelAndView mv = new ModelAndView("dashboard");
+                    return mv;
+                } else {
+                    ModelAndView mv = new ModelAndView("login");
+                    mv.addObject("message", "Password anda salah");
+                    return mv;
+                }
+            } else {
+                ModelAndView mv = new ModelAndView("login");
+                mv.addObject("message", "User tidak ditemukan");
+                return mv;
+            }
+        } catch(Exception e)
         {
-            if(obj.getPassword().equals(passWord))
-            {
-                ModelAndView mv=new ModelAndView("dashboard");
-
-                return mv;
-            }
-            else {
-                ModelAndView mv=new ModelAndView("login");
-                return mv;
-
-            }
-        }
-        else {
-            ModelAndView mv=new ModelAndView("login");
+            ModelAndView mv = new ModelAndView("login");
+            mv.addObject("message", "User tidak ditemukan");
             return mv;
-        }
 
+        }
 
 
     }
 
     @GetMapping("/")
-    public String masukLogin(){
+    public String masukLogin() {
         return "login.html";
     }
 }
