@@ -53,12 +53,12 @@
                         <a href="#" class="nav_link active" onclick="dashboard()">
                             <i class='dashboardicon bx bx-grid-alt nav_icon'></i>
                             <span class="nav_name">Dashboard</span> </a>
-                        <a href="#" class="nav_link"  onclick="user()">
+                        <a href="#" class="nav_link" onclick="user()">
                             <i class='profileicon bx bx-user nav_icon'></i>
                             <span class="nav_name">Profile</span> </a>
-                        <a href="#" class="nav_link">
+                        <a href="#" class="nav_link" onclick="absensi()">
                             <i class='bx bx-message-square-detail nav_icon'></i>
-                            <span class="nav_name">Messages</span> </a>
+                            <span class="nav_name">Absensi</span> </a>
                         <a href="#" class="nav_link">
                             <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a
                             href="#" class="nav_link">
@@ -77,7 +77,7 @@
             <div class="gradient-custom text-white" style="border-radius: 1rem;" id="dashboardID">
                 <div class="card-body p-5 text-center">
                     <div class="mb-md-5 mt-md-4 pb-5">
-                        <div class="container" >
+                        <div class="container">
                             <div class="row">
                                 <table class="table table-bordered">
                                     <thead>
@@ -227,7 +227,8 @@
                                     <h6 class="mb-3">Full Name</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Kevin Hao">
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                           placeholder="Kevin Hao">
                                 </div>
                             </div>
                             <hr>
@@ -236,7 +237,8 @@
                                     <h6 class="mb-3">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Kevin@stts.edu">
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                           placeholder="Kevin@stts.edu">
                                 </div>
                             </div>
                             <hr>
@@ -245,7 +247,8 @@
                                     <h6 class="mb-3">Mobile</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="0852347823">
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                           placeholder="0852347823">
                                 </div>
                             </div>
                             <hr>
@@ -254,7 +257,8 @@
                                     <h6 class="mb-3">Address</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Adress">
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                           placeholder="Adress">
                                 </div>
                             </div>
                             <hr>
@@ -278,6 +282,124 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    <div class="text-black" style="border-radius: 2rem;display: none" id="absenID">
+        <h2>Module</h2>
+        <select class="form-select w-25" aria-label="Default select example" style="margin-bottom: 5%">
+            <option selected>Pilih Paket</option>
+            <option value="1">Website Programming</option>
+            <option value="2">Flutter</option>
+            <option value="3">Back End Developer</option>
+        </select>
+        <div class="gradient-custom-absensi card-body p-5 text-center">
+            <div class="mb-md-5 mt-md-4 pb-5">
+                <div class="container">
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Student Name</th>
+                                <th scope="col">Minggu 1</th>
+                                <th scope="col">Minggu 2</th>
+                                <th scope="col">Minggu 3</th>
+                                <th scope="col">Minggu 4</th>
+                                <th scope="col">Minggu 5</th>
+                                <th scope="col">Minggu 6</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Kevin Doe</td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Russel Doe</td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>John Doe</td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                                <td>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary position-absolute mb-5" style="margin-left: 30%;margin-top: -5%">Save</button>
         </div>
     </div>
 </div>

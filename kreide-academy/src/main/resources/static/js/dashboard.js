@@ -7,12 +7,18 @@ var image_source = document.getElementById("image_source")
 function dashboard() {
     document.getElementById("userID").style.display = 'none';
     document.getElementById("dashboardID").style.display = 'block';
+    document.getElementById("absenID").style.display = 'none';
 }
 function user() {
     document.getElementById("userID").style.display = 'block';
     document.getElementById("dashboardID").style.display = 'none';
+    document.getElementById("absenID").style.display = 'none';
 }
-
+function absensi() {
+    document.getElementById("userID").style.display = 'none';
+    document.getElementById("dashboardID").style.display = 'none';
+    document.getElementById("absenID").style.display = 'block';
+}
 
 
 
@@ -25,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             bodypd = document.getElementById("body-pd"),
             headerpd = document.getElementById("header")
 
-// Validate that all variables exist
         if(toggle && nav && bodypd && headerpd){
             toggle.addEventListener('click', ()=>{
 // show navbar
