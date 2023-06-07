@@ -22,11 +22,8 @@ public class LoginController {
 
     @PostMapping("/login")
     public ModelAndView Ceklogin(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord) {
-
-
         try {
             Users obj = userService.getUser(userName);
-
             if (obj != null) {
                 if (obj.getPassword().equals(passWord)) {
                     ModelAndView mv = new ModelAndView("dashboard");
@@ -46,7 +43,6 @@ public class LoginController {
             ModelAndView mv = new ModelAndView("login");
             mv.addObject("message", "User tidak ditemukan");
             return mv;
-
         }
 
 
