@@ -61,15 +61,16 @@
                         <a href="#" class="nav_link" onclick="absensi()">
                             <i class='bx bx-message-square-detail nav_icon'></i>
                             <span class="nav_name">Absensi</span> </a>
-                        <a href="#" class="nav_link">
-                            <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a
-                            href="#" class="nav_link">
+                        <a href="#" class="nav_link" onclick="createUser()" th:if="${session.level == 'superuser'}">
+                            <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Add User Admin</span> </a> <a
+                            href="#" class="nav_link" >
+
                         <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#"
                                                                                                           class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
                     </div>
                 </div>
-                <a href="/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
                         class="nav_name">SignOut</span> </a>
             </nav>
         </div>
@@ -438,6 +439,16 @@
                 </button>
             </div>
         </div>
+        <div class="text-black" style="border-radius: 2rem;display: none" id="UserCreationID">
+            <form action="/createUser" method="post">
+                <div>Username: <input type="text" name="usernameBaru" id=""></div>
+                <div>Password: <input type="password" name="passwordBaru" id=""></div>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+        <div class="text-black" style="border-radius: 2rem;display: none" id="RegisterStudentID">
+
+        </div>
     </div>
 </div>
 
@@ -466,7 +477,7 @@
 
         for (var i = 0; i < daysInCurrentMonth; i++) {
             $("#calendarAbsensi").append("<div id='tgl" + (i + 1) + "' style='display: inline-block; border: 1px solid black; width: 100px; height: 100px;float: left'>" + (i + 1) +
-                "<br><input type='checkbox' name='' id=''>" +"</div>");
+                "<br><input type='checkbox' name='' id=''>" + "</div>");
         }
     })
 </script>

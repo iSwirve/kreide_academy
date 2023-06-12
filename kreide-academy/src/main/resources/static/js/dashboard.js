@@ -8,18 +8,31 @@ function dashboard() {
     document.getElementById("userID").style.display = 'none';
     document.getElementById("dashboardID").style.display = 'block';
     document.getElementById("absenID").style.display = 'none';
+    document.getElementById("UserCreationID").style.display = 'none';
+
 }
 function user() {
     document.getElementById("userID").style.display = 'block';
     document.getElementById("dashboardID").style.display = 'none';
     document.getElementById("absenID").style.display = 'none';
+    document.getElementById("UserCreationID").style.display = 'none';
+
 }
 function absensi() {
     document.getElementById("userID").style.display = 'none';
     document.getElementById("dashboardID").style.display = 'none';
     document.getElementById("absenID").style.display = 'block';
+    document.getElementById("UserCreationID").style.display = 'none';
+
 }
 
+
+function createUser() {
+    document.getElementById("userID").style.display = 'none';
+    document.getElementById("dashboardID").style.display = 'none';
+    document.getElementById("absenID").style.display = 'none';
+    document.getElementById("UserCreationID").style.display = 'block';
+}
 
 
 //animation

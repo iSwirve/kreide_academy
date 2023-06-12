@@ -1,10 +1,10 @@
 package com.example.kreideacademy.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name="students") //otomatis membuat tabel dengan hibernate (application.properties)
@@ -16,6 +16,8 @@ public class Students {
     String studentID;
     String studentName;
     String mendaftarSejak;
+
+
 
 
 }
