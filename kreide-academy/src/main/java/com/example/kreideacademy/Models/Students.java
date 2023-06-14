@@ -21,6 +21,12 @@ public class Students {
     @JoinColumn(name="fk_userid", nullable=false)
     private Users teacher;
 
+    @ManyToOne
+    @JoinColumn(name="fk_paketid", nullable=false)
+    private Paket paket;
+
+
+
 
 
 

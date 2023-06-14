@@ -1,16 +1,17 @@
 package com.example.kreideacademy.Repositories;
 
+import com.example.kreideacademy.Models.Paket;
 import com.example.kreideacademy.Models.Students;
-import com.example.kreideacademy.Models.Users;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface StudentRepository extends JpaRepository<Students, String> {
+public interface PaketRepository extends JpaRepository<Paket, Integer> {
     @Modifying
-    @Query(value = "insert into Students (student_name,fk_userid) VALUES (:insertLink,:id)", nativeQuery = true)
+    @Query(value = "insert into Paket (student_name) VALUES (:id)", nativeQuery = true)
     @Transactional
-    public void insertStudent(@Param("insertLink") String insertLink, @Param("id") String id);
+    public void insertPaket(@Param("insertLink") String insertLink);
+
 }

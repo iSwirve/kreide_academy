@@ -2,6 +2,8 @@ package com.example.kreideacademy.Controllers;
 
 import com.example.kreideacademy.Models.Students;
 import com.example.kreideacademy.Models.Users;
+import com.example.kreideacademy.Repositories.PaketRepository;
+import com.example.kreideacademy.Services.PaketService;
 import com.example.kreideacademy.Services.StudentService;
 import com.example.kreideacademy.Services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,6 +28,8 @@ public class LoginController {
     private UserService userService;
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private PaketService paketService;
 
     @GetMapping("/dashboard")
     public ModelAndView Checklogin(HttpSession session, HttpServletResponse response) throws IOException {
@@ -72,6 +76,16 @@ public class LoginController {
 
         response.sendRedirect("/dashboard");
     }
+
+
+    @PostMapping("/createPaket")
+    public void createPaket(@RequestParam("namaPaket") String paket, HttpServletResponse response) throws IOException{
+
+        paketService.addPaket(paket);
+
+        response.sendRedirect("/dashboard");
+    }
+
 
     @PostMapping("/addStudent")
     public void addStudent(@RequestParam("chosenTeacher") String teacher, @RequestParam("studentName") String studentName, HttpServletResponse response) throws IOException{
