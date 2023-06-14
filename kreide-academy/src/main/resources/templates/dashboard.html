@@ -62,10 +62,9 @@
                             <i class='bx bx-message-square-detail nav_icon'></i>
                             <span class="nav_name">Absensi</span> </a>
                         <a href="#" class="nav_link" onclick="createUser()" th:if="${session.level == 'superuser'}">
-                            <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Add User Admin</span> </a> <a
-                            href="#" class="nav_link" >
-
-                        <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#"
+                            <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Add User Admin</span> </a>
+                        <a href="#" class="nav_link" onclick="createStudent()">
+                            <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#"
                                                                                                           class="nav_link">
                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
                     </div>
@@ -86,53 +85,23 @@
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr>
-                                            <th scope="col">No</th>
+                                            <th scope="col">Student ID</th>
                                             <th scope="col">Student Name</th>
-                                            <th scope="col">Package</th>
-                                            <th scope="col">Registration Date</th>
+                                            <th scope="col">Mendaftar Ssejak</th>
+                                            <th scope="col">Guru</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Kevin Doe</td>
-                                            <td>Website Programmer</td>
-                                            <td>06 October 2017</td>
-                                            <td>
-                                                <button type="button" class="btn btn-success"><i
-                                                        class="fas fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        class="far fa-trash-alt"></i></button>
-                                            </td>
+                                        <tr th:each="student: ${students}">
+
+                                            <td th:text="${student.getStudentID()}" />
+                                            <td th:text="${student.getStudentName()}" />
+                                            <td th:text="${student.getMendaftarSejak()}" />
+                                            <td th:text="${student.getTeacher().getUsername()}" />
+                                            <td><button>del</button></td>
                                         </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Kepin Doe</td>
-                                            <td>Flitter</td>
-                                            <td>11 October 2022</td>
-                                            <td>
-                                                <button type="button" class="btn btn-success"><i
-                                                        class="fas fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        class="far fa-trash-alt"></i></button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Etical Hacking</td>
-                                            <td>Russel Doe</td>
-                                            <td>35 February 2199</td>
-                                            <td>
-                                                <button type="button" class="btn btn-success"><i
-                                                        class="fas fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-danger"><i
-                                                        class="far fa-trash-alt"></i></button>
-                                            </td>
-                                        </tr>
+s
                                         </tbody>
                                     </table>
                                 </div>
@@ -446,8 +415,15 @@
                 <button type="submit">Add User</button>
             </form>
         </div>
-        <div class="text-black" style="border-radius: 2rem;display: none" id="RegisterStudentID">
-
+        <div class="text-black" style="border-radius: 2rem;display: none" id="StudentCreationID">
+            <form action="/addStudent" method="post">
+                <div>Nama Siswa <input type="text" name="studentName" id=""></div>
+                <br>
+                <select name="chosenTeacher" id="">
+                    <option th:each="operator : ${teachers}" th:value="${operator.getUsername()}" th:text="${operator.getUsername()}"></option>
+                </select>
+                <button>Add Student</button>
+            </form>
         </div>
     </div>
 </div>
@@ -459,6 +435,8 @@
 <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
 <script src="https://raw.githack.com/iSwirve/css_kreide/main/dashboard.js">
 </script>
+
+
 
 
 <script>

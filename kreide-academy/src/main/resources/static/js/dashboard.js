@@ -9,13 +9,14 @@ function dashboard() {
     document.getElementById("dashboardID").style.display = 'block';
     document.getElementById("absenID").style.display = 'none';
     document.getElementById("UserCreationID").style.display = 'none';
-
+    document.getElementById("StudentCreationID").style.display = 'none';
 }
 function user() {
     document.getElementById("userID").style.display = 'block';
     document.getElementById("dashboardID").style.display = 'none';
     document.getElementById("absenID").style.display = 'none';
     document.getElementById("UserCreationID").style.display = 'none';
+    document.getElementById("StudentCreationID").style.display = "none";
 
 }
 function absensi() {
@@ -23,7 +24,7 @@ function absensi() {
     document.getElementById("dashboardID").style.display = 'none';
     document.getElementById("absenID").style.display = 'block';
     document.getElementById("UserCreationID").style.display = 'none';
-
+    document.getElementById("StudentCreationID").style.display = "none";
 }
 
 
@@ -32,8 +33,17 @@ function createUser() {
     document.getElementById("dashboardID").style.display = 'none';
     document.getElementById("absenID").style.display = 'none';
     document.getElementById("UserCreationID").style.display = 'block';
+    document.getElementById("StudentCreationID").style.display = "none";
 }
 
+function createStudent()
+{
+    document.getElementById("userID").style.display = 'none';
+    document.getElementById("dashboardID").style.display= 'none';
+    document.getElementById("absenID").style.display = 'none';
+    document.getElementById("UserCreationID").style.display = 'none';
+    document.getElementById("StudentCreationID").style.display = 'block';
+}
 
 //animation
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -74,5 +84,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // Your code to run since DOM is loaded and ready
 });
-
 

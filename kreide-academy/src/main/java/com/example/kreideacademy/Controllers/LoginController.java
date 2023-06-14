@@ -1,6 +1,8 @@
 package com.example.kreideacademy.Controllers;
 
+import com.example.kreideacademy.Models.Students;
 import com.example.kreideacademy.Models.Users;
+import com.example.kreideacademy.Services.StudentService;
 import com.example.kreideacademy.Services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,19 +17,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 public class LoginController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private StudentService studentService;
 
     @GetMapping("/dashboard")
     public ModelAndView Checklogin(HttpSession session, HttpServletResponse response) throws IOException {
         String loginData = (String) session.getAttribute("username");
         if (loginData != null) {
-            return new ModelAndView("dashboard");
+            ModelAndView mv = new ModelAndView("dashboard");
+            List<Users> listUser = userService.getUserAll();
+            List<Students> listStudent = studentService.getAllStudent();
 
+            mv.addObject("teachers", listUser);
+            mv.addObject("students", listStudent);
+            return mv;
         }
         else {
             response.sendRedirect("/");
@@ -59,6 +69,19 @@ public class LoginController {
         final Users userObj = mapper.convertValue(body, Users.class);
 
         userService.adduser(userObj);
+
+        response.sendRedirect("/dashboard");
+    }
+
+    @PostMapping("/addStudent")
+    public void addStudent(@RequestParam("chosenTeacher") String teacher, @RequestParam("studentName") String studentName, HttpServletResponse response) throws IOException{
+
+        final ObjectMapper mapper = new ObjectMapper(); // jackson's objectmapper
+        Map<String, String> body= new HashMap<String, String>(){{
+            put("studentName", studentName);
+            put("fk_userid", teacher);
+        }};
+        studentService.addStudent(studentName, teacher);
         response.sendRedirect("/dashboard");
     }
 

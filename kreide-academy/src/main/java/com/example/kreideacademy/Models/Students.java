@@ -13,9 +13,14 @@ import java.util.List;
 public class Students {
 
     @Id
-    String studentID;
+    int studentID;
     String studentName;
     String mendaftarSejak;
+
+    @ManyToOne
+    @JoinColumn(name="fk_userid", nullable=false)
+    private Users teacher;
+
 
 
 
