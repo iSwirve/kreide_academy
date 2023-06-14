@@ -10,8 +10,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface PaketRepository extends JpaRepository<Paket, Integer> {
     @Modifying
-    @Query(value = "insert into Paket (student_name) VALUES (:id)", nativeQuery = true)
+    @Query(value = "insert into Paket (nama_paket) VALUES (:id)", nativeQuery = true)
     @Transactional
-    public void insertPaket(@Param("insertLink") String insertLink);
+    public void insertPaket(@Param("id") String insertLink);
 
 }

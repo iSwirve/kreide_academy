@@ -1,5 +1,6 @@
 package com.example.kreideacademy.Controllers;
 
+import com.example.kreideacademy.Models.Paket;
 import com.example.kreideacademy.Models.Students;
 import com.example.kreideacademy.Models.Users;
 import com.example.kreideacademy.Repositories.PaketRepository;
@@ -38,9 +39,11 @@ public class LoginController {
             ModelAndView mv = new ModelAndView("dashboard");
             List<Users> listUser = userService.getUserAll();
             List<Students> listStudent = studentService.getAllStudent();
-
+            List<Paket> listPaket = paketService.getAllPaket();
             mv.addObject("teachers", listUser);
             mv.addObject("students", listStudent);
+            mv.addObject("paket", listPaket);
+
             return mv;
         }
         else {
@@ -88,14 +91,14 @@ public class LoginController {
 
 
     @PostMapping("/addStudent")
-    public void addStudent(@RequestParam("chosenTeacher") String teacher, @RequestParam("studentName") String studentName, HttpServletResponse response) throws IOException{
+    public void addStudent(@RequestParam("chosenTeacher") String teacher,@RequestParam("chosenPaket") int paket, @RequestParam("studentName") String studentName, HttpServletResponse response) throws IOException{
 
         final ObjectMapper mapper = new ObjectMapper(); // jackson's objectmapper
         Map<String, String> body= new HashMap<String, String>(){{
             put("studentName", studentName);
             put("fk_userid", teacher);
         }};
-        studentService.addStudent(studentName, teacher);
+        studentService.addStudent(studentName, teacher, paket);
         response.sendRedirect("/dashboard");
     }
 

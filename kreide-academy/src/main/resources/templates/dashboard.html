@@ -87,7 +87,7 @@
                                         <tr>
                                             <th scope="col">Student ID</th>
                                             <th scope="col">Student Name</th>
-                                            <th scope="col">Mendaftar Ssejak</th>
+                                            <th scope="col">Paket</th>
                                             <th scope="col">Guru</th>
                                             <th scope="col">Actions</th>
                                         </tr>
@@ -97,7 +97,7 @@
 
                                             <td th:text="${student.getStudentID()}" />
                                             <td th:text="${student.getStudentName()}" />
-                                            <td th:text="${student.getMendaftarSejak()}" />
+                                            <td th:text="${student.getPaket().getNamaPaket()}" />
                                             <td th:text="${student.getTeacher().getUsername()}" />
                                             <td><button>del</button></td>
                                         </tr>
@@ -422,6 +422,9 @@ s
                 <br>
                 <select name="chosenTeacher" id="">
                     <option th:each="operator : ${teachers}" th:value="${operator.getUsername()}" th:text="${operator.getUsername()}"></option>
+                </select>
+                <select name="chosenPaket" id="">
+                    <option th:each="operator : ${paket}" th:value="${operator.getPaketid()}" th:text="${operator.getNamaPaket()}"></option>
                 </select>
                 <button class="btn btn-submit">Add Student</button>
             </form>

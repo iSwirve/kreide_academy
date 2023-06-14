@@ -13,9 +13,9 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepo;
 
-    public void addStudent(String Student, String teacher)
+    public void addStudent(String Student, String teacher, int paketid)
     {
-        studentRepo.insertStudent(Student, teacher);
+        studentRepo.insertStudent(Student, teacher, paketid);
     }
     public List<Students> getAllStudent()
     {

@@ -12,10 +12,11 @@ import java.util.List;
 @Setter
 public class Paket {
     @Id
-    private int idPaket;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int paketid;
     private String namaPaket;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_paketid", referencedColumnName = "idPaket")
+    @JoinColumn(name = "fk_paketid", referencedColumnName = "paketid")
     private List<Students> students;
 }
