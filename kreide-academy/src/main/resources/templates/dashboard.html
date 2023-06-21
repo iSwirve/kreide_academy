@@ -66,7 +66,7 @@
                         <a href="#" class="nav_link" onclick="createStudent()">
                             <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Add Student</span> </a>
                         <a href="#" class="nav_link" onclick="createPaket()">
-                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Add Paket</span> </a>
+                            <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Add Paket</span> </a>
                     </div>
                 </div>
                 <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
@@ -95,13 +95,15 @@
                                         <tbody>
                                         <tr th:each="student: ${students}">
 
-                                            <td th:text="${student.getStudentID()}" />
-                                            <td th:text="${student.getStudentName()}" />
-                                            <td th:text="${student.getPaket().getNamaPaket()}" />
-                                            <td th:text="${student.getTeacher().getUsername()}" />
-                                            <td><button>del</button></td>
+                                            <td th:text="${student.getStudentID()}"/>
+                                            <td th:text="${student.getStudentName()}"/>
+                                            <td th:text="${student.getPaket().getNamaPaket()}"/>
+                                            <td th:text="${student.getTeacher().getUsername()}"/>
+                                            <td>
+                                                <button>del</button>
+                                            </td>
                                         </tr>
-s
+                                        s
                                         </tbody>
                                     </table>
                                 </div>
@@ -421,13 +423,17 @@ s
                 <div>Nama Siswa <input type="text" name="studentName" id=""></div>
                 <br>
                 <select name="chosenTeacher" id="">
-                    <option th:each="operator : ${teachers}" th:value="${operator.getUsername()}" th:text="${operator.getUsername()}"></option>
+                    <option th:each="operator : ${teachers}" th:value="${operator.getUsername()}"
+                            th:text="${operator.getUsername()}"></option>
                 </select>
                 <select name="chosenPaket" id="">
-                    <option th:each="operator : ${paket}" th:value="${operator.getPaketid()}" th:text="${operator.getNamaPaket()}"></option>
+                    <option th:each="operator : ${paket}" th:value="${operator.getPaketid()}"
+                            th:text="${operator.getNamaPaket()}"></option>
                 </select>
                 <button class="btn btn-submit">Add Student</button>
             </form>
+
+
         </div>
 
         <div class="text-black" style="border-radius: 2rem;display: none" id="PaketCreationID">
@@ -435,6 +441,28 @@ s
                 <div>Nama Paket : <input type="text" name="namaPaket" id=""></div>
                 <button class="btn btn-submit" type="submit">Add Paket</button>
             </form>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Nama Paket</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pakets: ${paket}">
+                    <form th:action="@{/delPaket}" method="post">
+                        <td th:text="${pakets.getNamaPaket()}"/>
+
+                        <td>
+                            <input type="hidden" name="paketID" th:value="${pakets.getPaketid()}">
+                            <button class="btn btn-danger" name="delButton">del</button>
+                        </td>
+                    </form>
+                </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -446,8 +474,6 @@ s
 <script src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
 <script src="https://raw.githack.com/iSwirve/css_kreide/main/dashboard.js">
 </script>
-
-
 
 
 <script>

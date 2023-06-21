@@ -19,4 +19,13 @@ public class PaketService {
     public List<Paket> getAllPaket(){
         return paketRepo.findAll();
     }
+    public Paket getPaketID(Integer id)
+    {
+        return paketRepo.findById(id).get();
+    }
+    public void deletePaket(Integer paket)
+    {
+        Paket pkt = getPaketID(paket);
+        paketRepo.delete(pkt);
+    }
 }

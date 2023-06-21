@@ -102,6 +102,22 @@ public class LoginController {
         response.sendRedirect("/dashboard");
     }
 
+    @PostMapping("/delPaket")
+    public void delPaket(@RequestParam("paketID") Integer id,HttpServletResponse response) throws IOException{
+
+        try
+        {
+            paketService.deletePaket(id);
+            response.sendRedirect("/dashboard");
+
+        }
+        catch(Exception e)
+        {
+            response.sendRedirect("/dashboard");
+
+        }
+    }
+
     @PostMapping("/login")
     public void Ceklogin(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord, HttpSession session, HttpServletResponse response) throws IOException {
         String loginData = (String) session.getAttribute("username");
